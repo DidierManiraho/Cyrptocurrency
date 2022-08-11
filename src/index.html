@@ -7,6 +7,7 @@
   <meta http-equiv="refresh" content="30" />
   <link href="/dist/output.css" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <body class="">
@@ -15,7 +16,7 @@
 	<h1 class="text-black font-semibold text-3xl">Cyrptocurrency Converter Calculator</h1>
   </div>
   <!-- End: Title -->
-<form id="calcForm">
+<form id="form" onLoad="dollarToCrypto()">
 
 <div class="flex justify-center items-center">
 <div class="rounded bg-gray-100 m-6 p-6 space-y-2 w-3/6">
@@ -23,19 +24,18 @@
  
 
 <div class="flex space-x-2">
-	<div class="w-1/2"><input id="amount" class="rounded text-black bg-zinc-50 text-base p-4 outline outline-1 outline-gray-300 w-full max-w-xs" type="number" placeholder="Enter Amount to convert" value="1"></div>
-	<div class="w-auto"></div>
-<div class="w-auto"></div>
+	<div class="grow"><input id="buyer-amount" class="rounded text-black bg-zinc-50 text-base p-4 outline outline-1 outline-gray-300 w-full max-w-xs" type="number" placeholder="Enter Amount to convert" value="1"></div>
+	<!-- <div class="w-auto"></div> -->
+<!-- <div class="w-auto"></div> -->
 </div>
 <!-- End Part1 -->
 <!-- Start: Part2 -->
 <div class="flex space-x-2 ">
-	<div class="w-1/2">
-<select id="currency" class="select outline outline-1 outline-gray-300 w-full max-w-xs">
-  <option value="21000" disabled selected>Bitcoin(BTC)</option>
-  <option value="30">United Statees Dollar "$" (USD)</option>
-  <option value="40">Albanian Lek "L" (ALL)</option>
-  <option value="50">Algerian Dinar "" (DZD)</option>
+	<div class="grow">
+<select id="from-currency" class="select outline outline-1 outline-gray-300 w-full max-w-xs">
+  <option value="" selected>Bitcoin(BTC)</option>
+  <option value="">Ethereum (ETH)</option>
+  <option value="">United States Dollar "$" (USD)</option>
 </select>
   </div>
 	<div class="mt-auto">
@@ -47,30 +47,33 @@
 	</svg>
   </button>
   </div>
-	<div class="w-1/2">
+	<div class="grow">
   
-<select class="select outline outline-1 outline-gray-300 w-full max-w-xs">
-  <option value="21000" disabled selected>Bitcoin(BTC)</option>
-  <option value="30">United Statees Dollar "$" (USD)</option>
-  <option value="40">Albanian Lek "L" (ALL)</option>
-  <option value="50">Algerian Dinar "" (DZD)</option>
+<select id="to-currency" class="select outline outline-1 outline-gray-300 w-full max-w-xs">
+  <option value="" selected>Bitcoin(BTC)</option>
+  <option value="">Ethereum (ETH)</option>
+  <option value="">United States Dollar "$" (USD)</option>
+ 
+  
 </select>
 </div>
 </div>
 <!-- End: Part2  -->
 
 <div class="flex justify-center items-center  space-x-4">
-<div class=" "><p class="text-black"><span id="coinumber">1 </span> Bitcoin (BTC)<p></div>
+<div class=" "><p class="text-black"><span id="currency-amount">1 </span> <span id="currency-name">Bitcoin (BTC)</span> <p></div>
 <div class=" "><span>=<span></div>
-<div class=" "><p><span class="font-bold" id="total">24,45644</span><span id="convert_text"> States Dollar"$" (USD)</span></p></div>
+<div class=" "><p id="exchange-amount"><span class="font-bold" id="convert-amount">24,45644</span><span id="convert-currency"> States Dollar"$" (USD)</span></p></div>
 </div>
 
 <div class="flex justify-center items-center space-x-2 ">
 		<div id="refresh" class=" bg-white text-gray-500 text-sm font-medium border border-slate-300 rounded p-2"><button onclick="">Refresh</button></div>
 		<div id="save" class=" bg-white text-gray-500 text-sm font-medium border border-slate-300 rounded p-2"><button>Save This Conversion</button></div>
 </div>
+
 </div>
 </div>
 </form>
+<script  src="app.js"></script>
 </body>
 </html>
